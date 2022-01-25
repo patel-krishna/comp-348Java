@@ -2,21 +2,17 @@
 public class Rectangle extends PrintableObject implements Shape
 {
     private double length, height;
-    //maybe?
-    private String name;
 
     public Rectangle()
     {
         this.length = 0;
         this.height = 0;
-        this.name = "Rectangle";
     }
 
-    public Rectangle(double length, double height, String name)
+    public Rectangle(double length, double height)
     {
         this.length = length;
         this.height = height;
-        this.name = name;
     }
 
     public double getLength()
@@ -29,11 +25,6 @@ public class Rectangle extends PrintableObject implements Shape
         return this.height;
     }
 
-    //maybe
-    public String getName()
-    {
-        return this.name;
-    }
 
     public void setLength(double length)
     {
@@ -45,29 +36,33 @@ public class Rectangle extends PrintableObject implements Shape
         this.height = height;
     }
 
-    //maybe
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
     @Override
     public String toString()
     {
-        return this.name + ", " + this.length + ", " + this.height;
+        return super.getName() + ", " + this.length + ", " + this.height;
     }
 
-    public static Rectangle parse(String input){}
+    //The input string is in comma separated format,i.e.: 'Rectangle,2,3.5. The method returns
+    //the object as Rectangle.
+    public static Rectangle parse(String input)
+    {
+        String[] inputArray = input.split(",");
+        String type = inputArray[0];
+        String width = inputArray[1];
+        String height = inputArray[2];
+
+        return new Rectangle(Double.parseDouble(width), Double.parseDouble(height));
+    }
 
 
     public double getParameter()
     {
-
+        return (this.height + this.length) * 2;
     }
 
     public double getArea()
     {
-
+        return this.height * this.length;
     }
 
 }

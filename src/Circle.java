@@ -1,19 +1,16 @@
 public class Circle extends PrintableObject implements Shape
 {
     private double radius;
-    //maybe?
-    private String name;
 
     public Circle()
     {
         this.radius = 0;
-        this.name = "Rectangle";
     }
 
-    public Circle(double radius, String name)
+    public Circle(double radius)
     {
         this.radius = radius;
-        this.name = name;
+
     }
 
     public double getRadius()
@@ -26,35 +23,40 @@ public class Circle extends PrintableObject implements Shape
         this.radius = radius;
     }
 
-    //maybe
-    public String getName()
-    {
-        return this.name;
-    }
-
-    //maybe
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
     @Override
     public String toString()
     {
-        return this.name + ", " + this.radius;
+        return super.getName() + ", " + this.radius;
     }
 
+    //input string and instantiates and returns
+    //a Circle object whose radius is initialized with the value in the input string. The
+    //input string is in comma separated format,i.e.:
+    //Circle,1. The method returns the object as Circle.
     public static Circle parse(String input)
-    {}
+    {
+        String[] inputArray = input.split(",");
+        String type = inputArray[0];
+        String radius = inputArray[1];
+
+        return new Circle(Double.parseDouble(radius));
+    }
 
 
     public double getParameter()
     {
-
+        return 2 * Math.PI * this.radius;
     }
 
     public double getArea()
     {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
 
+    //method and make sure the returned name is in
+    //ALL-CAPS.
+    @Override
+    public Object getName() {
+        return "CIRCLE";
     }
 }
