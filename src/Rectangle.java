@@ -39,7 +39,7 @@ public class Rectangle extends PrintableObject implements Shape
     @Override
     public String toString()
     {
-        return super.getName() + ", " + this.length + ", " + this.height;
+        return super.getName() + ", " + this.length + ", " + this.height + "\n";
     }
 
     //The input string is in comma separated format,i.e.: 'Rectangle,2,3.5. The method returns

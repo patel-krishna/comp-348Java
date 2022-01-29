@@ -3,8 +3,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-//Make sure all exceptions are caught. In case of format error
+//TODO Make sure all exceptions are caught. In case of format error
 // or any particular runtime error, the program prints the details of the error and simply terminates.
+// array point to null
 
 public class Driver
 {
@@ -27,7 +28,6 @@ public class Driver
 
             while (inputFile.hasNext())
             {
-                System.out.println("qkldnfewlkfheorwjf");
                 // Read the next name.
                 String shape = inputFile.nextLine();
 
@@ -41,10 +41,6 @@ public class Driver
 
                 i++;
 
-
-                // Display the last name read.
-                //System.out.println(shape);
-
             }
 
             Arrays.sort(shapes, new Comparator()
@@ -54,12 +50,28 @@ public class Driver
                 {
                     Shape sa = (Shape) o1;
                     Shape sb = (Shape) o2;
+                    String name1 =  sa.getName();
+                    String name2 =  sb.getName();
 
-                    int v = sa.compareTo(sb);
 
-                    return v;
+                    if(name1.equals(name2))
+                    {
+                        double a1 = sa.getArea();
+                        double a2 = sb.getArea();
 
-                    // it can also return 0, and 1
+                        if(a1 > a2)
+                        {
+                            return 1;
+                        }else if(a1 == a2)
+                        {
+                            return 0;
+                        }else{
+                            return -1;
+                        }
+                    }else{
+                       return name1.compareTo(name2);
+                    }
+
                 }
             }   );
 

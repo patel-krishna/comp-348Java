@@ -5,9 +5,8 @@ public abstract class PrintableObject implements NamedObject, Printable
     @Override
     public String toString()
     {
-        NamedObject name = (NamedObject) this.getName();
 
-        return name.toString();
+        return this.getName();
     }
 
     //prints the text returned by toString() method. The information is

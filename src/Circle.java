@@ -26,7 +26,7 @@ public class Circle extends PrintableObject implements Shape
     @Override
     public String toString()
     {
-        return super.getName() + ", " + this.radius;
+        return super.getName() + ", " + this.radius + "\n";
     }
 
     //input string and instantiates and returns
@@ -56,7 +56,7 @@ public class Circle extends PrintableObject implements Shape
     //method and make sure the returned name is in
     //ALL-CAPS.
     @Override
-    public Object getName() {
+    public String getName() {
         return "CIRCLE";
     }
 }
