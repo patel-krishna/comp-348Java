@@ -22,9 +22,9 @@ int main()
         printf("%f \n", result);
     }
 
-    float m = min(arr, 5);
-    printf("%f", m); // -1.000000
-    return 0;
+//     float m = min(*arr, 5);
+//     printf("%f", m); // -1.000000
+//     return 0;
 }
 
 float min(float arr[], int size)
