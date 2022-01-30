@@ -9,6 +9,8 @@ int main()
     float arr3[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
     float arr[] = {1, 4, 5, 6, -1};
 
+     // float* arr[10] = {NULL}; //this a NULL array
+
     // for(int i = 0; i < 10; i++)
     // {
     //     printf("%f", aggregates[i](arr, 10));
@@ -17,27 +19,27 @@ int main()
     for(int i = 0; i < 5; i++)
     {
         float result = (*aggregates[i])(arr2, 5);
-        printf("%f \n\n\n\n\n\n\n\n\n\n", result);
+        printf("%f \n", result);
     }
 
-    // float m = min(&arr, 5);
-    // printf("%f", m); // -1.000000
+    float m = min(arr, 5);
+    printf("%f", m); // -1.000000
     return 0;
 }
 
 float min(float arr[], int size)
 {
 
-    // if(!arr)
-    // {
-    //     printf ("FATAL ERROR: "
-    //              "array is NULL "
-    //              "at %s, line %d.", __FILE__, __LINE__);
+     if(arr == NULL)
+     {
+       printf ("FATAL ERROR: "
+                "array is NULL "
+                  "at %s, line %d.", __FILE__, __LINE__);
 
-    //     printf("\nProgram is aborted");         
+         printf("\nProgram is aborted");         
 
-    //     exit(0);         
-    // }
+         exit(0);         
+     }
     
     if(size < 0)
     {
@@ -63,15 +65,15 @@ float min(float arr[], int size)
 
 float max(float arr[], int size)
 {
-    // if(!arr)
-    // {
-    //     printf ("FATAL ERROR: "
-    //              "array is NULL "
-    //              "at %s, line %d.", __FILE__, __LINE__);
+    if(arr == NULL)
+    {
+        printf ("FATAL ERROR: "
+                 "array is NULL "
+                 "at %s, line %d.", __FILE__, __LINE__);
 
-    //     printf("\nProgram is aborted");  
-    //     exit(0);           
-    // }
+        printf("\nProgram is aborted");  
+        exit(0);           
+    }
 
     if(size < 0)
     {
@@ -97,15 +99,15 @@ float max(float arr[], int size)
 
 float sum(float arr[], int size)
 {
-    // if(!arr)
-    // {
-    //     printf ("FATAL ERROR: "
-    //              "array is NULL "
-    //              "at %s, line %d.", __FILE__, __LINE__);
+     if(arr == NULL)
+     {
+         printf ("FATAL ERROR: "
+                  "array is NULL "
+                  "at %s, line %d.", __FILE__, __LINE__);
 
-    //     printf("\nProgram is aborted");  
-    //     exit(0);           
-    // }
+         printf("\nProgram is aborted");  
+         exit(0);           
+     }
 
     if(size < 0)
     {
