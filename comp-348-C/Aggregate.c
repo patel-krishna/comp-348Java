@@ -2,8 +2,20 @@
 
 ///In case the input array is NULL 
 
+
+
 int main()
 {
+
+    aggregates2 funcArr[5];
+    funcArr[0] = min;
+    funcArr[1] = max;
+    funcArr[2] = sum;
+    funcArr[3] = avg;
+    funcArr[4] = pseudo_avg;
+
+    const char* funcnames[] = { "FMIN", "FMAX", "FSUM" , "FAVG" , "FPSEUDO_AVG" };
+
 
     float arr2[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
     float arr3[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
@@ -16,10 +28,17 @@ int main()
     //     printf("%f", aggregates[i](arr, 10));
     // }
 
+    // for(int i = 0; i < 5; i++)
+    // {
+    //     float result = (*aggregates[i])(arr, 5);
+    //     printf("%f \n", result);
+    // }
+
+    //using the typedef pointer arr func
     for(int i = 0; i < 5; i++)
     {
-        float result = (*aggregates[i])(arr2, 5);
-        printf("%f \n", result);
+        float result = funcArr[i](arr, 5);
+        printf("%s : %f \n", funcnames[i], result);
     }
 
 //     float m = min(*arr, 5);
