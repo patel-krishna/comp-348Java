@@ -175,7 +175,27 @@ int main(){
     head->next = NULL;
 
     new =(list) malloc(sizeof(list)); 
-    new->el = lasel()
+    new->el = aasel('b');
+
+    list new2 = (list) malloc(sizeof(list));
+    new2->el = aasel('c');
+    new->next = new2;
+    new2->next= NIL;
+
+    list smallList =(list) malloc(sizeof(list));
+    smallList = lasel(new);
+
+    list new3 = (list) malloc(sizeof(list));
+    new3->el = aasel('d');
+
+    list new4 = (list) malloc(sizeof(list));
+    new4->el = aasel('e');
+
+    head->next = smallList;
+    smallList->next = new3;
+    new3->next = new4;
+    new4->next = NIL;
+
 
     printf("hello \n");
     print(head->el); 
