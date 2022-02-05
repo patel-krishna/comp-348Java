@@ -21,7 +21,7 @@ struct _listnode *next;
 
 const element NIL = { .type=LIST, .l=NULL };
 list *head = NULL;
-list *new = NULL; 
+//list *new = NULL; 
 
 
 //it need to be inside of a scope
