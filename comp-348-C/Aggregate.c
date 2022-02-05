@@ -4,47 +4,47 @@
 
 
 
-int main()
-{
+// int main()
+// {
 
-    aggregates2 funcArr[5];
-    funcArr[0] = min;
-    funcArr[1] = max;
-    funcArr[2] = sum;
-    funcArr[3] = avg;
-    funcArr[4] = pseudo_avg;
+//     aggregates2 funcArr[5];
+//     funcArr[0] = min;
+//     funcArr[1] = max;
+//     funcArr[2] = sum;
+//     funcArr[3] = avg;
+//     funcArr[4] = pseudo_avg;
 
-    const char* funcnames[] = { "FMIN", "FMAX", "FSUM" , "FAVG" , "FPSEUDO_AVG" };
+//     const char* funcnames[] = { "FMIN", "FMAX", "FSUM" , "FAVG" , "FPSEUDO_AVG" };
 
 
-    float arr2[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
-    float arr3[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
-    float arr[] = {1, 4, 5, 6, -1};
+//     float arr2[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
+//     float arr3[] = {(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand(),(float)rand()};
+//     float arr[] = {1, 4, 5, 6, -1};
 
-     // float* arr[10] = {NULL}; //this a NULL array
+//      // float* arr[10] = {NULL}; //this a NULL array
 
-    // for(int i = 0; i < 10; i++)
-    // {
-    //     printf("%f", aggregates[i](arr, 10));
-    // }
+//     // for(int i = 0; i < 10; i++)
+//     // {
+//     //     printf("%f", aggregates[i](arr, 10));
+//     // }
 
-    // for(int i = 0; i < 5; i++)
-    // {
-    //     float result = (*aggregates[i])(arr, 5);
-    //     printf("%f \n", result);
-    // }
+//     // for(int i = 0; i < 5; i++)
+//     // {
+//     //     float result = (*aggregates[i])(arr, 5);
+//     //     printf("%f \n", result);
+//     // }
 
-    //using the typedef pointer arr func
-    for(int i = 0; i < 5; i++)
-    {
-        float result = funcArr[i](arr, 5);
-        printf("%s : %f \n", funcnames[i], result);
-    }
+//     //using the typedef pointer arr func
+//     for(int i = 0; i < 5; i++)
+//     {
+//         float result = funcArr[i](arr, 5);
+//         printf("%s : %f \n", funcnames[i], result);
+//     }
 
-//     float m = min(*arr, 5);
-//     printf("%f", m); // -1.000000
-//     return 0;
-}
+// //     float m = min(*arr, 5);
+// //     printf("%f", m); // -1.000000
+// //     return 0;
+// }
 
 float min(float arr[], int size)
 {

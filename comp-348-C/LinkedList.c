@@ -20,13 +20,7 @@ struct _listnode *next;
 } * list;
 
 const element NIL = { .type=LIST, .l=NULL };
-list *head = NULL;
-//list *new = NULL; 
-
-
-//it need to be inside of a scope
-// list head = NULL;
-// head = (list) malloc(sizeof(list)); 
+//list *head = NULL;
 
 
 //function takes atom and returns element with that value
@@ -47,11 +41,17 @@ element car(element e){
     if(e.type != LIST){
         return NIL;
     }
+   //ASK TA
+   return e.l->el;
+    
+    
     //not sure?
   //  return e.type;
     
-   list temp = e.l;
-   return temp->el; 
+
+   //list temp = e.l;
+   //return temp->el;
+  // return lasel(head);  
 };
 
 
@@ -61,19 +61,20 @@ list cdr(element e){
         return NIL.l;
     }
 
-    list temp = head; 
-    int counter=0; 
+    //ASK TA
+    return e.l->next; 
+   // int counter=0; 
 
-    while(temp != NULL){
-        temp = temp->next; 
-        counter++; 
-    }
+   // while(temp != NULL){
+   //     temp = temp->next; 
+   //     counter++; 
+   // }
 
-    if(counter<=1){
-        return NIL.l; 
-    }
+   // if(counter<=1){
+    //    return NIL.l; 
+   // }
 
-    return temp; 
+    //return temp; 
 };
 
 list cddr(element e){
@@ -88,8 +89,10 @@ list cons (element e, list l)
 {
     list head = NULL;
     head = (list) malloc(sizeof(list)); 
-
-    head.el = {.type = e.type, .l = l};
+    head->el=e;  
+    head->next = l;
+    
+    //head = { .type = e.type, .l = l};
 
     return head;
 }; 
@@ -99,14 +102,23 @@ list cons (element e, list l)
 list append(list l1, list l2)
 {
     //not sure what they want
-    list l = NULL;
-    l = (list) malloc(sizeof(list)); 
+    //list l = NULL;
+   // l = (list) malloc(sizeof(list)); 
 
-    l = l1;
-    l1 = l2;
-    l2 = l;
+    // l = l1;
+    //l1 = l2;
+    //l2 = l;
 
-    free(l);
+   // free(l);
+
+   list temp = l1;
+
+  while (temp->next != NULL) {
+    temp = temp->next;
+  }
+
+  temp->next = l2;
+  return l1;
 
 };
 
@@ -114,24 +126,60 @@ list append(list l1, list l2)
 void lfreer(list l)
 {
     //maybe need to do a for loop
-    free(l->el.a);
-    free(l->el.l);
-    free(l->el.type);
-    free(l->next->el);
-    free(l);
+  //  free(l->el.a);
+   // free(l->el.l);
+   // free(l->el.type);
+  //  free(l->next->el);
+  //  free(l);
+
+  
+   list temp = l;
+   list next;
+ 
+   while (temp != NULL)
+   {
+       next = temp->next;
+       free(temp);
+       temp = next;
+   }
+   
+   l = NULL;
 
 
 };
 
 void print(element e)
 {
+    //if its an atom, print character
+    if(e.type==ATOM){
+        printf("%c", e.a);
+    }else if(e.type==LIST){
 
+    printf("(");
+    print(e.l->next->el);
+    printf(")"); 
+    
+    }
 };
+
 
 
 
 int main(){
 
     list head = NULL;
+    list new;
     head = (list) malloc(sizeof(list)); 
+
+    head->el = aasel('a');
+    head->next = NULL;
+
+    new =(list) malloc(sizeof(list)); 
+    new->el = lasel()
+
+    printf("hello \n");
+    print(head->el); 
+
+    
+
 }; 
