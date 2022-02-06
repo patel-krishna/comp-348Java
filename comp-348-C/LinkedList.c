@@ -148,58 +148,96 @@ void lfreer(list l)
 
 };
 
+void print(element e);
 void print(element e)
 {
+    
+    //element next = e.l->next->el; 
     //if its an atom, print character
     if(e.type==ATOM){
         printf("%c", e.a);
-    }else if(e.type==LIST){
-
-    printf("(");
-    print(e.l->next->el);
-    printf(")"); 
+        // print(next);
+    }else if(e.type==LIST && e.l==NULL){
+        printf("NIL");
+        print(NIL);
+        printf(")");
+    } else {
+        list temp = e.l; 
+            printf("(");
+            while(temp != NULL){
+                print(temp->el);
+                temp=temp->next; 
+            }
+            printf(")"); 
+    }  
     
-    }
+
+};
+
+int main(){
+    element a = aasel('a');
+    element b = aasel('b');
+    element c = aasel('c');
+    element d = aasel('d');
+    element e = aasel('e');
+
+    list cl = malloc(sizeof(list)); 
+    cl->el=c;
+    cl->next=NULL;
+
+    list el = malloc(sizeof(list)); 
+    el->el=e;
+    el->next=NULL;
+
+    list sublist1 = cons(b, cl);     
+    list sublist2 = cons(d, el);
+
+    sublist1->next = NULL;
+    sublist2->next = NULL; 
+
+    list headFinal = malloc(sizeof(list)); 
+    headFinal->el = a;
+    
+    headFinal->next = sublist2;
+    headFinal->next->el = lasel(sublist1);
+   
+
+
+    print(lasel(headFinal));
+
 };
 
 
+// int main(){
+
+//     list head = (list) malloc(sizeof(list)); 
+
+//     head->el = aasel('a');
+//     head->next = NULL;
+
+//     list new =(list) malloc(sizeof(list)); 
+//     new->el = aasel('b');
+
+//     list new2 = (list) malloc(sizeof(list));
+//     new2->el = aasel('c');
+//     new->next = new2;
+//     new2->next = NULL;
+
+//     list smallList =(list) malloc(sizeof(list));
+//     smallList->el= lasel(new);
+
+//     list new3 = (list) malloc(sizeof(list));
+//     new3->el = aasel('d');
+
+//     list new4 = (list) malloc(sizeof(list));
+//     new4->el = aasel('e');
+
+//     head->next = smallList;
+//     smallList->next = new3;
+//     new3->next = new4;
+//     new4->next = NULL;
 
 
-int main(){
+//     print(smallList->el); 
 
-    list head = NULL;
-    list new;
-    head = (list) malloc(sizeof(list)); 
-
-    head->el = aasel('a');
-    head->next = NULL;
-
-    new =(list) malloc(sizeof(list)); 
-    new->el = aasel('b');
-
-    list new2 = (list) malloc(sizeof(list));
-    new2->el = aasel('c');
-    new->next = new2;
-    new2->next= NIL;
-
-    list smallList =(list) malloc(sizeof(list));
-    smallList = lasel(new);
-
-    list new3 = (list) malloc(sizeof(list));
-    new3->el = aasel('d');
-
-    list new4 = (list) malloc(sizeof(list));
-    new4->el = aasel('e');
-
-    head->next = smallList;
-    smallList->next = new3;
-    new3->next = new4;
-    new4->next = NIL;
-
-
-    printf("hello \n");
-    print(head->el); 
-
-    
-
-}; 
+// }; 
