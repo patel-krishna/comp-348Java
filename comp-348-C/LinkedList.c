@@ -41,7 +41,7 @@ element car(element e){
     if(e.type != LIST){
         return NIL;
     }
-   //ASK TA
+
    return e.l->el;
     
     
@@ -60,8 +60,7 @@ list cdr(element e){
     if(e.type != LIST){
         return NIL.l;
     }
-
-    //ASK TA
+    
     return e.l->next; 
    // int counter=0; 
 
@@ -159,8 +158,7 @@ void print(element e)
         // print(next);
     }else if(e.type==LIST && e.l==NULL){
         printf("NIL");
-        print(NIL);
-        printf(")");
+       // printf(")");
     } else {
         list temp = e.l; 
             printf("(");
@@ -192,18 +190,27 @@ int main(){
     list sublist1 = cons(b, cl);     
     list sublist2 = cons(d, el);
 
-    sublist1->next = NULL;
-    sublist2->next = NULL; 
+    list temp = malloc(sizeof(list));
+    temp->el = lasel(sublist1);
+    temp->next = sublist2;
 
     list headFinal = malloc(sizeof(list)); 
     headFinal->el = a;
-    
-    headFinal->next = sublist2;
-    headFinal->next->el = lasel(sublist1);
-   
+    headFinal->next = temp; 
 
-
+    printf("Q7: \n");
     print(lasel(headFinal));
+
+    printf("\n");
+    printf("Q8: \n");
+    print(car(lasel(headFinal)));
+    printf("\n");
+    print(lasel(cdr(lasel(headFinal))));
+    printf("\n");
+    print(car(car(lasel(headFinal)))); 
+
+    lfreer(headFinal);
+    return 0;
 
 };
 
