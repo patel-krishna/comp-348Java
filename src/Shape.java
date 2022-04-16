@@ -2,7 +2,7 @@ public interface Shape extends NamedObject
 {
 
     //a method to return shape's perimeter.
-    double getParameter();
+    double getPerimeter();
 
     //a method to return shape's area.
     double getArea();

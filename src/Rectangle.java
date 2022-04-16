@@ -55,7 +55,7 @@ public class Rectangle extends PrintableObject implements Shape
     }
 
 
-    public double getParameter()
+    public double getPerimeter()
     {
         return (this.height + this.length) * 2;
     }

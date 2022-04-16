@@ -43,7 +43,7 @@ public class Circle extends PrintableObject implements Shape
     }
 
 
-    public double getParameter()
+    public double getPerimeter()
     {
         return 2 * Math.PI * this.radius;
     }
